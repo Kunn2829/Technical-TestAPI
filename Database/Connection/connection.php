@@ -1,17 +1,13 @@
 <?php
-// datos de conexión a la base de datos
 $host = 'localhost';
-$user = 'usuario';
-$password = 'contraseña';
-$database = 'nombre_base_de_datos';
+$user = 'tu_usuario';
+$password = 'tu_contraseña';
+$database = 'tu_base_de_datos';
 
-// crear la conexión
-$conn = mysqli_connect($host, $user, $password, $database);
+$mysqli = new mysqli($host, $user, $password, $database);
 
-// verificar si la conexión fue exitosa
-if (!$conn) {
-  die('No se pudo conectar a la base de datos: ' . mysqli_connect_error());
+// verificar la conexión
+if ($mysqli->connect_errno) {
+  die('Error al conectar a la base de datos: ' . $mysqli->connect_error);
 }
-
-echo 'Conexión exitosa a la base de datos';
 ?>
