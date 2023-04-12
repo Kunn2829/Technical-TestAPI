@@ -1,4 +1,7 @@
 <?php
+use Firebase\JWT\JWT;
+require "Database\Connection\Connection.php";
+
 header('Content-Type: application/json');
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -6,9 +9,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $response = array('message' => 'Esta es una respuesta GET de la API');
   echo json_encode($response);
 } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Aquí puedes escribir el código que maneje las solicitudes POST de la API
+  
+   $correo = $_POST["mail"];
+   $nombre = $_POST["name"];
+   
+  $jwt = Conexion::jwt($id="40",$email="alejandro");
+  print_r($jwt);
+
   $data = json_decode(file_get_contents('php://input'), true);
-  $response = array('message' => 'Esta es una respuesta POST de la API', 'data' => $data);
+  $response = array('message' => 'Esta es una respuesta POST de la API', 'data' => $correo);
   echo json_encode($response);
 } else {
   // Si la solicitud no es GET ni POST, devolver un error 405
