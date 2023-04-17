@@ -3,48 +3,26 @@
 require_once "vendor\autoload.php";
 USE Firebase\JWT\JWT;
 class Conexion {
-    private $host = "localhost";
-    private $user = "usuario";
-    private $password = "contraseña";
-    private $dbname = "basedatos";
-    private $mysqli;
-
-    public function __construct() {
-        $this->mysqli = new mysqli($this->host, $this->user, $this->password, $this->dbname);
-
-        if ($this->mysqli->connect_error) {
-            die("Error de conexión: " . $this->mysqli->connect_error);
-        }
+    private static $instance = null;
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "socialnetwork";
+    private $conn = null;
+ 
+    private function __construct() {
+       $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     }
-
-    public function query($sql) {
-        return $this->mysqli->query($sql);
+ 
+    public static function getInstance() {
+       if(!self::$instance) {
+          self::$instance = new self();
+       }
+       return self::$instance;
     }
-
-    public function close() {
-        $this->mysqli->close();
+ 
+    public function getConnection() {
+       return $this->conn;
     }
-
-    public static function jwt($id,$email) {
-    
-        $time = time();
-        $token = array(
-
-         "beginTime" => $time,
-         "ExpTime"  => $time + (60*60*24),
-         "data" =>  [
-
-            "id" => $id,
-            "email" => $email
-
-         ] 
-        
-        );
-
-       $jwt = JWT::encode($token, "1231asdasjd1231ya71623ygsd","HS512");
-       return $jwt;
-
-    }  
-
-}
+ }
 ?>
