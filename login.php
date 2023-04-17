@@ -91,6 +91,10 @@ if ($jwt) {
     echo "Credenciales incorrectas";
 }
     
-}
+} else {
+    // Si la solicitud no es GET ni POST, devolver un error 405
+    http_response_code(405);
+    echo json_encode(array('error' => 'Método no permitido'));
+  }
 
 ?>
