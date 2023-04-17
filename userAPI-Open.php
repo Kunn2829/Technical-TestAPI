@@ -18,9 +18,50 @@ if (isset($headers['Authorization'])) {
 if  ($bearer_token === "Abc81391723Xd2141"){
 
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
-  // Aquí puedes escribir el código que maneje las solicitudes GET de la API
-  $response = array('message' => 'Esta es una respuesta GET de la API');
-  echo json_encode($response);
+  //Instaciamiento instancia de singleton DB
+  $db = Conexion::getInstance();
+  $conn = $db->getConnection();
+  
+if (isset($_GET["id_user"])){
+  $id_user = $_GET["id_user"];
+  $sql = "SELECT * FROM users WHERE id_user = $id_user";
+$result = mysqli_query($conn, $sql);
+
+// Verificar si se encontró el usuario
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    // Devolver los resultados en formato JSON
+    header('Content-Type: application/json');
+    echo json_encode($row);
+} else {
+    // Si no se encontró el usuario, devolver un error
+    http_response_code(404);
+    echo "Usuario no encontrado";
+}
+
+// Cerrar la conexión a la base de datos
+mysqli_close($conn);
+
+  
+} else {
+
+  $sql = "SELECT * FROM users";
+  $result = mysqli_query($conn, $sql);
+  
+  // Obtener resultados como array asociativo
+  $rows = array();
+  while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+  }
+  
+  // Imprimir resultados
+  header('Content-Type: application/json');
+  $respuesta = json_encode($rows);
+  echo $respuesta;
+  // Cerrar la conexión a la base de datos
+  mysqli_close($conn);
+
+}
 } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
   
   
@@ -32,8 +73,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
   $name_user = $_POST['name_user'];
   $mail_user = $_POST['mail_user'];
   $username_user = $_POST['username_user'];
-  $description_user = $_POST['description_user'];;
-  $cel_user = $_POST['cel_user'];;
+  $description_user = $_POST['description_user'];
+  $cel_user = $_POST['cel_user'];
+  $password_user = $_POST['password'];
   
   $sql = "SELECT * FROM users WHERE mail_user = '$mail_user' OR username_user = '$username_user'";
   $result = mysqli_query($conn, $sql);
@@ -44,7 +86,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "El correo electrónico o nombre de usuario ya está en uso.";
 } else {
   // Consulta SQL INSERT
-  $sql = "INSERT INTO users (name_user, mail_user, username_user, description_user, cel_user) VALUES ( '$name_user', '$mail_user', '$username_user', '$description_user', '$cel_user')";
+  $sql = "INSERT INTO users (name_user, mail_user, username_user, description_user, cel_user, password_user) VALUES ( '$name_user', '$mail_user', '$username_user', '$description_user', '$cel_user', '$password_user')";
   
   if (mysqli_query($conn, $sql)) { mysqli_close($conn);
     $response = array('message' => 'El usuario ha sido agregado correctamente', 'data' => $mail_user);
