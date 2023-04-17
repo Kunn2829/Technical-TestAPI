@@ -1,5 +1,4 @@
 <?php
-use Firebase\JWT\JWT;
 require "Database\Connection\Connection.php";
 
 header('Content-Type: application/json');
