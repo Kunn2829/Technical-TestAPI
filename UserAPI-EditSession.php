@@ -29,7 +29,6 @@ if (isset($bearer_token)){
   // Verificar si se encontró el usuario
   if (mysqli_num_rows($result) > 0) {
     $user = mysqli_fetch_assoc($result);
-    echo json_encode($user);
     $id_user = $user["id_user"];
     $new_username=$_POST['username_user'];
     $new_mail= $_POST['mail_user'];
@@ -38,11 +37,13 @@ if (isset($bearer_token)){
 
     $sql = "UPDATE users SET username_user = '$new_username', mail_user = '$new_mail', description_user = '$new_description', cel_user = '$new_cel' WHERE id_user = '$id_user'";
     if (mysqli_query($conn, $sql)) { mysqli_close($conn);
+        http_response_code(201);
         $response = array('message' => 'Tu cuenta ha sido actualizada exitosamente', 'data' => $new_mail);
         echo json_encode($response);
       } else {
         mysqli_close($conn);
-        $response = array('message' => 'ha habido un error interno al actualizar     el usuario', 'data' => $mail_user);
+        http_response_code(401);
+        $response = array('message' => 'ha habido un error interno al actualizar el usuario', 'data' => $mail_user);
         echo json_encode($response);
       }
     

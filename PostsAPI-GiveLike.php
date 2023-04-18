@@ -37,6 +37,7 @@ if (isset($bearer_token)){
 
     $sql = "INSERT INTO likes (id_post,id_user,like_status) VALUES ('$id_post','$id_user','$like_status')";
     if (mysqli_query($conn, $sql)) { mysqli_close($conn);
+        http_response_code(201);
         $response = array('message' => 'Tu like se ha asignado exitosamente', 'data' => $like_status);
         echo json_encode($response);
       } else {

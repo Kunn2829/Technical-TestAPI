@@ -37,6 +37,7 @@ if (isset($bearer_token)){
 
     $sql = "INSERT INTO posts (id_post_user,title_post, description_post, likes_users) VALUES ('$id_user','$title_post','$description_post','$likes_user')";
     if (mysqli_query($conn, $sql)) { mysqli_close($conn);
+      http_response_code(201);
         $response = array('message' => 'Tu post ha sido creado exitosamente', 'data' => $title_post);
         echo json_encode($response);
       } else {
