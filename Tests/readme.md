@@ -27,6 +27,6 @@ Puesta en marcha del proyecto:
 3.Probar los endpoints con postman desde la colección anexada en el códidgo.
 
 Alejandro Alvarez
-Ingeniero de sitemas - USTA
+Ingeniero de sistemas - USTA
 Artista 3D - UAB 
 
