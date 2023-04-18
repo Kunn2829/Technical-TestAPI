@@ -37,6 +37,7 @@ if (isset($bearer_token)){
 
     $sql = "INSERT INTO follow_users (id_user_follow,id_user_following) VALUES ('$id_user_follow','$id_user_followed')";
     if (mysqli_query($conn, $sql)) { mysqli_close($conn);
+        http_response_code(201);
         $response = array('message' => 'Has seguido exitosamente al usuario', 'data' => $id_user_followed);
         echo json_encode($response);
       } else {

@@ -37,6 +37,7 @@ if (isset($bearer_token)){
 
     $sql = "DELETE FROM follow_users WHERE id_user_follow = '$id_user_follow' AND id_user_following = '$id_user_followed'";
     if (mysqli_query($conn, $sql)) { mysqli_close($conn);
+        http_response_code(201);
         $response = array('message' => 'Has dejado de seguir exitosamente al usuario', 'data' => $id_user_followed);
         echo json_encode($response);
       } else {

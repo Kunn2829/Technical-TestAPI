@@ -58,9 +58,9 @@ if (http_response_code() === 200) {
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => 'POST',
-          CURLOPT_POSTFIELDS => array('name_user' => 'Alejandro Alvarez','mail_user' => 'Brayanmonroy94@gmail.com','username_user' => 'Kunnashi','description_user' => 'Hola, Busco amigos','cel_user' => '3123616318'),
+          CURLOPT_POSTFIELDS => array('name_user' => 'Alejandro Alvarez','mail_user' => 'Brayany99@gmail.com','username_user' => 'Kunnashi323','description_user' => 'Hola, Busco amigos','cel_user' => '3123616318'),
           CURLOPT_HTTPHEADER => array(
-            'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c'
+            'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
           ),
         ));
         
@@ -89,7 +89,7 @@ if (http_response_code() === 200) {
           CURLOPT_CUSTOMREQUEST => 'POST',
           CURLOPT_POSTFIELDS => array('title_post' => 'Hoy me disculpe con Alejo','description_post' => 'Es el día mas feliz de mi vida'),
           CURLOPT_HTTPHEADER => array(
-            'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE3LCJuYW1lIjoiRmVsaXBlIFBhdmEiLCJ1c2VybmFtZSI6IkZlbGlwZVAiLCJleHAiOjE2ODE3ODYzMDR9.9KDYS_cn5G3NftDHa1hLgjmofQAXl04xn7ckF3ZMPu4'
+            'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
           ),
         ));
         
@@ -117,7 +117,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS => array('id_post' => '5'),
   CURLOPT_HTTPHEADER => array(
-    'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE3LCJuYW1lIjoiRmVsaXBlIFBhdmEiLCJ1c2VybmFtZSI6IkZlbGlwZVAiLCJleHAiOjE2ODE3ODYzMDR9.9KDYS_cn5G3NftDHa1hLgjmofQAXl04xn7ckF3ZMPu4'
+    'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
   ),
 ));
 
@@ -127,10 +127,101 @@ $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         $this->assertEquals(201,$httpCode,"no inserto correctamente");
 
+    }
+
+    public function testApiFollow() {
+ 
+       
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'localhost/TECHNICAL-TESTAPI/UserAPI-Follow.php',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => array('id_user_followed' => '17'),
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
+  ),
+));
+
+$response = curl_exec($curl);
+
+
+$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+
+        $this->assertEquals(201,$httpCode,"no inserto correctamente");
+
+    }
+
+    public function testUnFollow(){
+
+
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'localhost/TECHNICAL-TESTAPI/UserAPI-Unfollow.php',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => array('id_user_followed' => '17','' => ''),
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
+  ),
+));
+
+$response = curl_exec($curl);
+
+$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+
+        $this->assertEquals(201,$httpCode,"no inserto correctamente");
+
+
+    }
+
+  public function testLogin(){
+
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'localhost/TECHNICAL-TESTAPI/Login.php',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => array('username' => 'FelipeP','password' => 'FelipeP2023'),
+    ));
+    
+    $response = curl_exec($curl);
+    
+    curl_close($curl);
+    
+
+    $this->assertArrayHasKey('token',json_decode($response,true));
+    
+
+  }
+
+
 
 
     }
 
 
 
-}
