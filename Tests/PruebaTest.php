@@ -147,6 +147,61 @@ public function testApiGetPostSpecificUser(){
 
 }
 
+   public function  testGetAllUsers(){
+    
+    $curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'localhost/TECHNICAL-TESTAPI/userAPI-Open.php',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+    'Authorization: Bearer Abc81391723Xd2141'
+  ),
+));
+
+$response = curl_exec($curl);
+$responsejson = json_decode($response,true);
+curl_close($curl);
+
+$this->assertTrue(array_key_exists("id_user",$responsejson[0]));
+
+
+
+   }
+
+
+ public function testGetUserDataJWT(){
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'localhost/TECHNICAL-TESTAPI/userAPI-GetSession.php',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEyLCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6Ikt1bm5hc2hpMjgiLCJleHAiOjE2ODE4NDgwNDJ9.li9B9rMCz-xgQ5wSIoMLyJNPRL4UENMF0W5bphdaqgE'
+      ),
+    ));
+    
+    $response = curl_exec($curl);
+    $responsejson = array(json_decode($response,true));
+    curl_close($curl);
+
+$this->assertTrue(array_key_exists("name_user",$responsejson[0]));
+
+
+ }  
 
 //Pruebas POST
     public function testApiCreateUser(){

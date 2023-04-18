@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "6745e0ea-6781-4b68-8c8c-459b157fb93a",
+		"name": "Social Network API V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23737752"
+	},
+	"item": [
+		{
+			"name": "Crear un usario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Abc81391723Xd2141",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_user",
+							"value": "Alejandro Alvarez",
+							"type": "text"
+						},
+						{
+							"key": "mail_user",
+							"value": "Brayanmonroy98@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username_user",
+							"value": "Kunnashi2829",
+							"type": "text"
+						},
+						{
+							"key": "description_user",
+							"value": "Hola, Busco amigos",
+							"type": "text"
+						},
+						{
+							"key": "cel_user",
+							"value": "3123616318",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kunnashi2829.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario con sesion iniciada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Abc81391723Xd2141",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name_user",
+							"value": "Alejandro Alvarez",
+							"type": "text"
+						},
+						{
+							"key": "mail_user",
+							"value": "Brayanmonroy98@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username_user",
+							"value": "Kunnashi2829",
+							"type": "text"
+						},
+						{
+							"key": "description_user",
+							"value": "Hola, Busco amigos",
+							"type": "text"
+						},
+						{
+							"key": "cel_user",
+							"value": "3123616318",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kunnashi2829.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title_post",
+							"value": "Un lindo día para existir",
+							"type": "text"
+						},
+						{
+							"key": "description_post",
+							"value": "Hoy es un día genial para ser feliz",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Hola, Busco amigos",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "3123616318",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-ManagePostUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-ManagePostUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dar Like",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_post",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Hola, Busco amigos",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "3123616318",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-GiveLike.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-GiveLike.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Follow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_post",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Hola, Busco amigos",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "3123616318",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-GiveLike.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-GiveLike.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UnFollow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_post",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Hola, Busco amigos",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "3123616318",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "Kunnashi2829.",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-GiveLike.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-GiveLike.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer todos los posts del usuario con sesion iniciada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-ManagePostUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-ManagePostUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer un solo post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-ManagePostUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-ManagePostUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer posts de todas las personas que sigo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzUwMTQ3fQ.9XF7ZKcd2KKDhYfNn0cRICHlcjp3IqUQwGWfAHgYy7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/PostsAPI-ManagePostUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"PostsAPI-ManagePostUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un usuario especifico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Abc81391723Xd2141",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI-Open.php?id_user=1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI-Open.php"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obterner post de un usuario especifico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Abc81391723Xd2141",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI-Open.php?id_user=1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI-Open.php"
+					],
+					"query": [
+						{
+							"key": "id_user",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Abc81391723Xd2141",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI-Open.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI-Open.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funcion de Login JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Alejandro2829.",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kunnashi2829.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/Login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"Login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Funcion de Logout JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Alejandro2829.",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kunnashi2829.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/Login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"Login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Datos Sesion atravez de JWT TOKEN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjE2LCJuYW1lIjoiQWxlamFuZHJvIEFsdmFyZXoiLCJ1c2VybmFtZSI6IkFsZWphbmRybzI4MjkuIiwiZXhwIjoxNjgxNzQ5NTU4fQ.hhgCsokSa8QG_4IbNwT4PeaT2bXPvk190Zy8Ro09n-0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/TECHNICAL-TESTAPI/userAPI-GetSession.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"TECHNICAL-TESTAPI",
+						"userAPI-GetSession.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
